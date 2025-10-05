@@ -27,9 +27,8 @@ class FounderFinder:
         
         if self.use_selenium:
             print("Initializing with Selenium (JavaScript rendering enabled)...")
-            # Set up Chrome options
             chrome_options = Options()
-            chrome_options.add_argument('--headless')  # Run in background
+            chrome_options.add_argument('--headless')
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-dev-shm-usage')
             chrome_options.add_argument('--disable-gpu')
@@ -46,8 +45,7 @@ class FounderFinder:
         else:
             print("Using basic requests mode (no JavaScript rendering)")
         
-        # Common patterns for founder-related pages
-        self.about_paths = ['/founders', '/about', '/about-us', '/team', '/our-story', '/company', '/leadership']
+        self.about_paths = [ '/about', '/founders', '/team']
     
     def __del__(self):
         if self.use_selenium and hasattr(self, 'driver'):
@@ -60,21 +58,41 @@ class FounderFinder:
             return match.group(1).strip(), match.group(2).strip()
         return line.strip(), None
     
-    def get_page_text(self, url):
-        """
-        Fetch page and return text content
-        Uses Selenium if available to render JavaScript
-        """
+    def get_page_text(self, url, save_debug=False):
+        """Fetch page and return text content using Selenium"""
         try:
             if self.use_selenium:
                 print(f"    Loading page with JavaScript rendering...")
                 self.driver.get(url)
-                # Wait for page to load
-                time.sleep(3)  # Give time for JavaScript to render
+                
+                # Wait longer for dynamic content to load
+                time.sleep(5)  # Increased from 3 to 5 seconds
+                
+                # Try to scroll down to trigger lazy loading
+                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(2)
+                
+                # Scroll back up
+                self.driver.execute_script("window.scrollTo(0, 0);")
+                time.sleep(1)
+                
+                # Get all text
                 text = self.driver.find_element(By.TAG_NAME, 'body').text
+                
+                # Also try to get HTML source and parse it
+                html = self.driver.page_source
+                
+                if save_debug and text:
+                    filename = url.replace('https://', '').replace('http://', '').replace('/', '_')
+                    with open(f'debug_{filename}.txt', 'w', encoding='utf-8') as f:
+                        f.write("=== RENDERED TEXT ===\n")
+                        f.write(text)
+                        f.write("\n\n=== HTML SOURCE ===\n")
+                        f.write(html)
+                    print(f"    DEBUG: Saved page text to debug_{filename}.txt")
+                
                 return text
             else:
-                # Fallback to requests
                 import requests
                 response = requests.get(url, timeout=10)
                 response.raise_for_status()
@@ -86,97 +104,85 @@ class FounderFinder:
             return None
     
     def extract_founders_from_text(self, text):
-        """
-        Extract founder names from text using comprehensive pattern matching
-        """
+        """Extract founder names from text using pattern matching"""
         if not text:
             return []
         
         founders = set()
         
-        # Enhanced patterns to catch more variations
         patterns = [
+            # "Name, PhD" followed by "Founder" on next line
+            r'([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+),?\s*(?:PhD|MD)?\s*\n+\s*Founder',
+            
             # "Founded by X" or "Co-founded by X and Y"
-            r'(?:founded by|co-founded by)\s+([A-Z][a-z]+\s+[A-Z][a-z]+(?:\s+(?:and|&)\s+[A-Z][a-z]+\s+[A-Z][a-z]+)*)',
+            r'(?:founded by|co-founded by)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)',
             
-            # "Name\nCo-Founder & CEO" (name on separate line from title)
-            r'([A-Z][a-z]+\s+[A-Z][a-z]+)\s*\n\s*Co-?Founder',
+            # "Name\nCo-Founder & CEO"
+            r'([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+),?\s*(?:,\s*)?(?:PhD|MD)?\s*\n+\s*Co-?Founder',
             
-            # "Name Co-Founder" (on same line, no punctuation)
-            r'([A-Z][a-z]+\s+[A-Z][a-z]+)\s+Co-?Founder',
-            
-            # "Co-Founder & CEO\nName" (title before name)
-            r'Co-?Founder.*?\n\s*([A-Z][a-z]+\s+[A-Z][a-z]+)',
+            # "Name Co-Founder"
+            r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)\s+Co-?Founder',
             
             # "Name, Co-Founder" or "Name - Co-Founder"
-            r'([A-Z][a-z]+\s+[A-Z][a-z]+)\s*[,\-–—]\s*Co-?Founder',
-            
-            # Look for the pattern: Name followed by title with CEO/CTO/COO
-            r'([A-Z][a-z]+\s+[A-Z][a-z]+)\s*\n\s*Co-?Founder\s*(?:&|and)?\s*(?:CEO|CTO|COO)',
+            r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)\s*[,\-–—]\s*Co-?Founder',
         ]
         
-        for pattern in patterns:
+        for i, pattern in enumerate(patterns):
             matches = re.finditer(pattern, text, re.IGNORECASE | re.MULTILINE)
             for match in matches:
                 name = match.group(1).strip()
-                # Validate it looks like a real name
+                name = re.sub(r',?\s*(?:PhD|MD|Ph\.D\.|M\.D\.)$', '', name).strip()
                 if self._is_valid_name(name):
+                    print(f"      DEBUG: Pattern {i+1} matched: '{name}'")
                     founders.add(name)
         
         return sorted(list(founders))
     
     def _is_valid_name(self, name):
         """Check if string looks like a valid person name"""
-        # Should be 2-3 words
         words = name.split()
-        if len(words) < 2 or len(words) > 3:
+        if len(words) < 2 or len(words) > 4:
             return False
         
-        # Each word should start with capital
         for word in words:
             if not word[0].isupper():
                 return False
         
-        # Filter out common false positives
-        false_positives = ['Our Team', 'Meet The', 'About Us', 'Contact Us']
+        false_positives = ['Our Team', 'Meet The', 'About Us', 'Contact Us', 'Head Of']
         if name in false_positives:
             return False
         
         return True
     
     def find_founders(self, company_name, company_url):
-        """
-        Main method to find founders for a company
-        """
+        """Main method to find founders for a company"""
         print(f"\nSearching for founders of {company_name}...")
         
         if not company_url:
             print("  No URL provided")
             return []
         
-        # Try homepage first
         print(f"  Trying homepage: {company_url}")
-        text = self.get_page_text(company_url)
+        text = self.get_page_text(company_url, save_debug=True)
         if text:
             founders = self.extract_founders_from_text(text)
             if founders:
                 print(f"  ✓ Found on homepage: {founders}")
                 return founders
         
-        # Try common about pages
         parsed_url = urlparse(company_url)
         base_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
         
         for path in self.about_paths:
             about_url = base_url + path
             print(f"  Trying: {about_url}")
-            text = self.get_page_text(about_url)
+            text = self.get_page_text(about_url, save_debug=(path in ['/about', '/founders', '/team']))
             if text:
                 founders = self.extract_founders_from_text(text)
                 if founders:
                     print(f"  ✓ Found: {founders}")
                     return founders
-            time.sleep(1)  # Rate limiting
+            time.sleep(1)
         
         print(f"  ✗ No founders found for {company_name}")
         return []
@@ -198,7 +204,6 @@ class FounderFinder:
                     founders = self.find_founders(company_name, company_url)
                     results[company_name] = founders
             
-            # Write results
             with open(output_file, 'w') as f:
                 json.dump(results, f, indent=2)
             
