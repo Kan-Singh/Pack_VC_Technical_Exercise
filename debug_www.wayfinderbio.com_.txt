@@ -21,11 +21,11 @@ CONTACT US
 Copyright © 2025 Wayfinder Biosciences, Inc. All rights reserved.
 
 === HTML SOURCE ===
-<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" lang="en-US" class="yui3-js-enabled js flexbox canvas canvastext webgl no-touch hashchange history draganddrop rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms no-csstransforms3d csstransitions video audio svg inlinesvg svgclippaths wf-acuminpro-n6-active wf-acuminpro-n7-active wf-acuminpro-i6-active wf-acuminpro-i7-active wf-active" style="scroll-behavior: smooth;" id="yui_3_17_2_1_1759640617811_75"><head>
+<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" lang="en-US" class="yui3-js-enabled js flexbox canvas canvastext webgl no-touch hashchange history draganddrop rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms no-csstransforms3d csstransitions video audio svg inlinesvg svgclippaths wf-acuminpro-i7-active wf-acuminpro-n6-active wf-acuminpro-n7-active wf-acuminpro-i6-active wf-active" style="scroll-behavior: smooth;" id="yui_3_17_2_1_1759642045865_75"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- This is Squarespace. --><!-- crow-cube-myds -->
-<script charset="utf-8" id="yui_3_17_2_1_1759640617811_112" src="//assets.squarespace.com/universal/scripts-compressed/announcement-bar-4170d8e399c601c3-min.en-US.js"></script><base href="">
+<script charset="utf-8" id="yui_3_17_2_1_1759642045865_112" src="//assets.squarespace.com/universal/scripts-compressed/announcement-bar-4170d8e399c601c3-min.en-US.js"></script><base href="">
 <meta charset="utf-8">
 <title>Wayfinder Biosciences</title>
 <meta http-equiv="Accept-CH" content="Sec-CH-UA-Platform-Version, Sec-CH-UA-Model"><link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/618ed7403cea913ae7211b3e/4f81f29f-fc4a-4257-91ba-cf220cdea6a1/favicon.ico?format=100w">
@@ -369,7 +369,7 @@ undruggable targets.">
     //# sourceURL=reserveSpaceForAnnouncementBar.js
   </script>
 
-<div class="sqs-announcement-bar-dropzone"><div class="sqs-announcement-bar-custom-location"><div id="yui_3_17_2_1_1759640617811_132" class="yui3-widget sqs-widget sqs-announcement-bar"><div id="yui_3_17_2_1_1759640617811_134" class="sqs-announcement-bar-content"><a class="sqs-announcement-bar-url" href="https://www.prnewswire.com/news-releases/wayfinder-biosciences-and-daiichi-sankyo-collaborate-to-develop-novel-rna-targeting-therapies-for-neurodegenerative-disease-302428711.html?tc=eml_cleartime" aria-labelledby="announcement-bar-text-inner-id"></a>
+<div class="sqs-announcement-bar-dropzone"><div class="sqs-announcement-bar-custom-location"><div id="yui_3_17_2_1_1759642045865_132" class="yui3-widget sqs-widget sqs-announcement-bar"><div id="yui_3_17_2_1_1759642045865_134" class="sqs-announcement-bar-content"><a class="sqs-announcement-bar-url" href="https://www.prnewswire.com/news-releases/wayfinder-biosciences-and-daiichi-sankyo-collaborate-to-develop-novel-rna-targeting-therapies-for-neurodegenerative-disease-302428711.html?tc=eml_cleartime" aria-labelledby="announcement-bar-text-inner-id"></a>
 
 <div class="sqs-announcement-bar-text">
   <span class="sqs-announcement-bar-close" tabindex="0" role="button" aria-label="Close Announcement"></span>
@@ -877,7 +877,7 @@ undruggable targets.">
 &quot;unit&quot;: &quot;%&quot;,
 &quot;value&quot;: 100.0
 }
-}" data-section-id="overlay-nav" data-show-account-login="true" data-test="header-menu" style="padding-top: 190.609px;">
+}" data-section-id="overlay-nav" data-show-account-login="true" data-test="header-menu" style="padding-top: 145.859px;">
       <div class="header-menu-bg theme-bg--primary"></div>
       <div class="header-menu-nav">
         <nav class="header-menu-nav-list">
@@ -1114,7 +1114,7 @@ undruggable targets.">
 &quot;enabled&quot;: false
 },
 &quot;typeName&quot;: &quot;page&quot;
-}" data-animation="none" data-controllers-bound="SectionWrapperController" style="padding-top: 190.609px;" data-active="true">
+}" data-animation="none" data-controllers-bound="SectionWrapperController" style="padding-top: 145.859px;" data-active="true">
   <div class="section-border">
     <div class="section-background">
     
@@ -1275,7 +1275,7 @@ undruggable targets.">
 }
 },
 &quot;typeName&quot;: &quot;page&quot;
-}" data-animation="none" data-controllers-bound="SectionWrapperController" id="yui_3_17_2_1_1759640617811_74" data-active="true">
+}" data-animation="none" data-controllers-bound="SectionWrapperController" id="yui_3_17_2_1_1759642045865_74" data-active="true">
   <div class="section-border" data-controller="SectionDivider" style="clip-path: url(#section-divider-67f71d12757d633cedf9bb77);" data-controllers-bound="SectionDivider">
     <div class="section-background">
     
@@ -1287,8 +1287,8 @@ undruggable targets.">
       
         
       
-    " id="yui_3_17_2_1_1759640617811_73">
-    <div class="content" id="yui_3_17_2_1_1759640617811_72">
+    " id="yui_3_17_2_1_1759642045865_73">
+    <div class="content" id="yui_3_17_2_1_1759642045865_72">
       
       
       
@@ -1352,7 +1352,7 @@ undruggable targets.">
 
 
 
-<div class="TextShape-node" data-text-attribute-id="6b8c09bd-d5a2-4cf7-ba6b-5100345983d3" data-shape="underline" data-font-size="21" data-is-front="false" data-index="0" style="font-size: 21px; --stroke: hsla(var(--black-hsl),1); --stroke-width: 0.1em; --stroke-linecap: square; --stroke-linejoin: bevel; --blend: none; --opacity: undefined; opacity: 1; transform: scale(1); width: 132px; height: 29px; left: 426px; top: 29px;"><svg><path d="M0,26.1 L132,26.1" vector-effect="non-scaling-stroke" stroke-dasharray="132" stroke-dashoffset="264"></path></svg></div></div></div></div></div><div class="row sqs-row" id="yui_3_17_2_1_1759640617811_71"><div class="col sqs-col-9 span-9"><div class="sqs-block html-block sqs-block-html" data-block-type="2" data-border-radii="{&quot;topLeft&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;topRight&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;bottomLeft&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;bottomRight&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0}}" data-sqsp-block="text" id="block-984f20667f3bc177c1a5"><div class="sqs-block-content">
+<div class="TextShape-node" data-text-attribute-id="6b8c09bd-d5a2-4cf7-ba6b-5100345983d3" data-shape="underline" data-font-size="21" data-is-front="false" data-index="0" style="font-size: 21px; --stroke: hsla(var(--black-hsl),1); --stroke-width: 0.1em; --stroke-linecap: square; --stroke-linejoin: bevel; --blend: none; --opacity: undefined; opacity: 1; transform: scale(1); width: 132px; height: 29px; left: 426px; top: 29px;"><svg><path d="M0,26.1 L132,26.1" vector-effect="non-scaling-stroke" stroke-dasharray="132" stroke-dashoffset="264"></path></svg></div></div></div></div></div><div class="row sqs-row" id="yui_3_17_2_1_1759642045865_71"><div class="col sqs-col-9 span-9"><div class="sqs-block html-block sqs-block-html" data-block-type="2" data-border-radii="{&quot;topLeft&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;topRight&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;bottomLeft&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;bottomRight&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0}}" data-sqsp-block="text" id="block-984f20667f3bc177c1a5"><div class="sqs-block-content">
 
 <div class="sqs-html-content" data-sqsp-text-block-content="">
   <p class="preFade fadeIn" style="white-space: pre-wrap; transition-timing-function: ease; transition-duration: 0.9s; transition-delay: 0.336s;">Most diseases are driven by disregulated proteins. Traditional therapies try to block these proteins directly, but many key targets remain untreatable despite decades of research. At Wayfinder, we take a different approach—stopping harmful proteins before they’re even made. We develop small molecules that bind to the mRNAs encoding these proteins, preventing their production in the first place.</p><p class="sqsrte-large preFade fadeIn" style="white-space: pre-wrap; transition-timing-function: ease; transition-duration: 0.9s; transition-delay: 0.36s;"><span class="sqsrte-text-color--white"><strong>We are building a pipeline of small molecule assets for targets inaccessible by traditional drug development approaches.</strong></span></p>
@@ -1382,7 +1382,7 @@ undruggable targets.">
 
 
 
-</div></div></div><div class="col sqs-col-3 span-3" id="yui_3_17_2_1_1759640617811_70"><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-0c5e18ef06f9f98dc920"><div class="sqs-block-content" id="yui_3_17_2_1_1759640617811_69">
+</div></div></div><div class="col sqs-col-3 span-3" id="yui_3_17_2_1_1759642045865_70"><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-0c5e18ef06f9f98dc920"><div class="sqs-block-content" id="yui_3_17_2_1_1759642045865_69">
 
 
 
@@ -1429,7 +1429,7 @@ undruggable targets.">
 
     
   
-    <div class="image-block-outer-wrapper layout-caption-below design-layout-inline combination-animation-site-default individual-animation-site-default individual-text-animation-site-default animation-loaded" data-test="image-block-inline-outer-wrapper" id="yui_3_17_2_1_1759640617811_68">
+    <div class="image-block-outer-wrapper layout-caption-below design-layout-inline combination-animation-site-default individual-animation-site-default individual-text-animation-site-default animation-loaded" data-test="image-block-inline-outer-wrapper" id="yui_3_17_2_1_1759642045865_68">
 
       
 
@@ -1437,7 +1437,7 @@ undruggable targets.">
         <figure class="
               sqs-block-image-figure
               intrinsic
-            " style="max-width:3405px;" id="yui_3_17_2_1_1759640617811_67">
+            " style="max-width:3405px;" id="yui_3_17_2_1_1759642045865_67">
           
         
         
@@ -1445,7 +1445,7 @@ undruggable targets.">
         
           
             
-          <div class="image-block-wrapper preFade fadeIn" data-animation-role="image" id="yui_3_17_2_1_1759640617811_66" style="transition-timing-function: ease; transition-duration: 0.9s; transition-delay: 0.384s;">
+          <div class="image-block-wrapper preFade fadeIn" data-animation-role="image" id="yui_3_17_2_1_1759642045865_66" style="transition-timing-function: ease; transition-duration: 0.9s; transition-delay: 0.384s;">
             <div class="sqs-image-shape-container-element
               
           
@@ -1457,7 +1457,7 @@ undruggable targets.">
                   padding-bottom:111.98238372802734%;
                 
                 overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);
-              " id="yui_3_17_2_1_1759640617811_65">
+              " id="yui_3_17_2_1_1759642045865_65">
                 
                 
                 
@@ -1635,7 +1635,7 @@ undruggable targets.">
 }
 },
 &quot;typeName&quot;: &quot;page&quot;
-}" data-animation="none" data-controllers-bound="SectionWrapperController" id="yui_3_17_2_1_1759640617811_88" data-active="true">
+}" data-animation="none" data-controllers-bound="SectionWrapperController" id="yui_3_17_2_1_1759642045865_88" data-active="true">
   <div class="section-border" data-controller="SectionDivider" style="clip-path: url(#section-divider-67f71d20778ecf2a7059cbf0);" data-controllers-bound="SectionDivider">
     <div class="section-background">
     
@@ -1647,8 +1647,8 @@ undruggable targets.">
       
         
       
-    " id="yui_3_17_2_1_1759640617811_87">
-    <div class="content" id="yui_3_17_2_1_1759640617811_86">
+    " id="yui_3_17_2_1_1759642045865_87">
+    <div class="content" id="yui_3_17_2_1_1759642045865_86">
       
       
       
@@ -1659,7 +1659,7 @@ undruggable targets.">
       
       
       
-      <div class="sqs-layout sqs-grid-12 columns-12" data-type="page-section" id="page-section-67f71d20778ecf2a7059cbf0"><div class="row sqs-row" id="yui_3_17_2_1_1759640617811_85"><div class="col sqs-col-12 span-12" id="yui_3_17_2_1_1759640617811_84"><div class="sqs-block html-block sqs-block-html" data-block-type="2" data-border-radii="{&quot;topLeft&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;topRight&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;bottomLeft&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;bottomRight&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0}}" data-sqsp-block="text" id="block-0c8567d22a154ca4c806"><div class="sqs-block-content" style="position: relative; z-index: 0;">
+      <div class="sqs-layout sqs-grid-12 columns-12" data-type="page-section" id="page-section-67f71d20778ecf2a7059cbf0"><div class="row sqs-row" id="yui_3_17_2_1_1759642045865_85"><div class="col sqs-col-12 span-12" id="yui_3_17_2_1_1759642045865_84"><div class="sqs-block html-block sqs-block-html" data-block-type="2" data-border-radii="{&quot;topLeft&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;topRight&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;bottomLeft&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0},&quot;bottomRight&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;value&quot;:0.0}}" data-sqsp-block="text" id="block-0c8567d22a154ca4c806"><div class="sqs-block-content" style="position: relative; z-index: 0;">
   <script class="TextAttributes-props" type="application/json">[ {
 "type": "highlight",
 "id": "3ba4b3ef-cc04-4318-8546-78fe963918cb",
@@ -1712,7 +1712,7 @@ undruggable targets.">
 
 
 
-<div class="TextShape-node" data-text-attribute-id="3ba4b3ef-cc04-4318-8546-78fe963918cb" data-shape="underlineCurve" data-font-size="18" data-is-front="false" data-index="0" style="font-size: 18px; --stroke: hsla(var(--black-hsl),1); --stroke-width: 0.1em; --stroke-linecap: square; --stroke-linejoin: bevel; --blend: none; --opacity: undefined; opacity: 1; transform: scale(1); width: 337px; height: 25px; left: 256px; top: 91px;"><svg><path d="M 0,24.75 c 42.12500000000001,-0.6875 84.25,-2.1249999999999893 168.5,-2.75 c 84.25,-0.625 128.06,3.552713678800501e-15 168.5,0.25 c 8.088000000000022,0.05000000000000071 -6.40300000000002,0.7124999999999986 -6.740000000000009,0.75" vector-effect="non-scaling-stroke" stroke-dasharray="349" stroke-dashoffset="698"></path></svg></div><div class="TextShape-node" data-text-attribute-id="3ba4b3ef-cc04-4318-8546-78fe963918cb" data-shape="underlineCurve" data-font-size="18" data-is-front="false" data-index="1" style="font-size: 18px; --stroke: hsla(var(--black-hsl),1); --stroke-width: 0.1em; --stroke-linecap: square; --stroke-linejoin: bevel; --blend: none; --opacity: undefined; opacity: 1; transform: scale(1); width: 171px; height: 25px; left: -1px; top: 117px;"><svg><path d="M 0,24.75 c 21.375000000000004,-0.6875 42.75,-2.1250000000000036 85.5,-2.75 c 42.75,-0.625 64.98000000000002,0 85.5,0.25 c 4.104000000000013,0.05000000000000071 -3.2490000000000236,0.7124999999999986 -3.420000000000016,0.75" vector-effect="non-scaling-stroke" stroke-dasharray="178" stroke-dashoffset="356"></path></svg></div></div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-07e973477d6de1cb6f7e"><div class="sqs-block-content" id="yui_3_17_2_1_1759640617811_83">
+<div class="TextShape-node" data-text-attribute-id="3ba4b3ef-cc04-4318-8546-78fe963918cb" data-shape="underlineCurve" data-font-size="18" data-is-front="false" data-index="0" style="font-size: 18px; --stroke: hsla(var(--black-hsl),1); --stroke-width: 0.1em; --stroke-linecap: square; --stroke-linejoin: bevel; --blend: none; --opacity: undefined; opacity: 1; transform: scale(1); width: 337px; height: 25px; left: 256px; top: 91px;"><svg><path d="M 0,24.75 c 42.12500000000001,-0.6875 84.25,-2.1249999999999893 168.5,-2.75 c 84.25,-0.625 128.06,3.552713678800501e-15 168.5,0.25 c 8.088000000000022,0.05000000000000071 -6.40300000000002,0.7124999999999986 -6.740000000000009,0.75" vector-effect="non-scaling-stroke" stroke-dasharray="349" stroke-dashoffset="698"></path></svg></div><div class="TextShape-node" data-text-attribute-id="3ba4b3ef-cc04-4318-8546-78fe963918cb" data-shape="underlineCurve" data-font-size="18" data-is-front="false" data-index="1" style="font-size: 18px; --stroke: hsla(var(--black-hsl),1); --stroke-width: 0.1em; --stroke-linecap: square; --stroke-linejoin: bevel; --blend: none; --opacity: undefined; opacity: 1; transform: scale(1); width: 171px; height: 25px; left: -1px; top: 117px;"><svg><path d="M 0,24.75 c 21.375000000000004,-0.6875 42.75,-2.1250000000000036 85.5,-2.75 c 42.75,-0.625 64.98000000000002,0 85.5,0.25 c 4.104000000000013,0.05000000000000071 -3.2490000000000236,0.7124999999999986 -3.420000000000016,0.75" vector-effect="non-scaling-stroke" stroke-dasharray="178" stroke-dashoffset="356"></path></svg></div></div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-07e973477d6de1cb6f7e"><div class="sqs-block-content" id="yui_3_17_2_1_1759642045865_83">
 
 
 
@@ -1759,7 +1759,7 @@ undruggable targets.">
 
     
   
-    <div class="image-block-outer-wrapper layout-caption-hidden design-layout-inline combination-animation-site-default individual-animation-site-default individual-text-animation-site-default animation-loaded" data-test="image-block-inline-outer-wrapper" id="yui_3_17_2_1_1759640617811_82">
+    <div class="image-block-outer-wrapper layout-caption-hidden design-layout-inline combination-animation-site-default individual-animation-site-default individual-text-animation-site-default animation-loaded" data-test="image-block-inline-outer-wrapper" id="yui_3_17_2_1_1759642045865_82">
 
       
 
@@ -1767,7 +1767,7 @@ undruggable targets.">
         <figure class="
               sqs-block-image-figure
               intrinsic
-            " style="max-width:2598px;" id="yui_3_17_2_1_1759640617811_81">
+            " style="max-width:2598px;" id="yui_3_17_2_1_1759642045865_81">
           
         
         
@@ -1775,7 +1775,7 @@ undruggable targets.">
         
           
             
-          <div class="image-block-wrapper preFade fadeIn" data-animation-role="image" id="yui_3_17_2_1_1759640617811_80" style="transition-timing-function: ease; transition-duration: 0.9s; transition-delay: 0.456s;">
+          <div class="image-block-wrapper preFade fadeIn" data-animation-role="image" id="yui_3_17_2_1_1759642045865_80" style="transition-timing-function: ease; transition-duration: 0.9s; transition-delay: 0.456s;">
             <div class="sqs-image-shape-container-element
               
           
@@ -1787,7 +1787,7 @@ undruggable targets.">
                   padding-bottom:15.319477081298828%;
                 
                 overflow: hidden;-webkit-mask-image: -webkit-radial-gradient(white, black);
-              " id="yui_3_17_2_1_1759640617811_79">
+              " id="yui_3_17_2_1_1759642045865_79">
                 
                 
                 
@@ -2228,9 +2228,9 @@ undruggable targets.">
 
 
 
-</div></div><div class="sqs-block website-component-block sqs-block-website-component sqs-block-button button-block" data-block-css="[&quot;https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/0762badf-9646-4058-97f8-7f2ce4ff89b4_89/website.components.button.styles.css&quot;]" data-block-scripts="[&quot;https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/0762badf-9646-4058-97f8-7f2ce4ff89b4_89/website.components.button.visitor.js&quot;]" data-block-type="1337" data-definition-name="website.components.button" data-sqsp-block="button" id="block-yui_3_17_2_1_1744722112707_7027"><div class="sqs-block-content" id="yui_3_17_2_1_1759640617811_98">
+</div></div><div class="sqs-block website-component-block sqs-block-website-component sqs-block-button button-block" data-block-css="[&quot;https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/0762badf-9646-4058-97f8-7f2ce4ff89b4_89/website.components.button.styles.css&quot;]" data-block-scripts="[&quot;https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.button/0762badf-9646-4058-97f8-7f2ce4ff89b4_89/website.components.button.visitor.js&quot;]" data-block-type="1337" data-definition-name="website.components.button" data-sqsp-block="button" id="block-yui_3_17_2_1_1744722112707_7027"><div class="sqs-block-content" id="yui_3_17_2_1_1759642045865_98">
 
-<div class="sqs-block-button-container sqs-block-button-container--center preFade fadeIn" data-animation-role="button" data-alignment="center" data-button-size="medium" data-button-type="primary" id="yui_3_17_2_1_1759640617811_97" style="transition-timing-function: ease; transition-duration: 0.9s; transition-delay: 0.528s;"> 
+<div class="sqs-block-button-container sqs-block-button-container--center preFade fadeIn" data-animation-role="button" data-alignment="center" data-button-size="medium" data-button-type="primary" id="yui_3_17_2_1_1759642045865_97" style="transition-timing-function: ease; transition-duration: 0.9s; transition-delay: 0.528s;"> 
   <a href="/contact" class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element" data-sqsp-button="" data-initialized="true">
     Contact us
   </a>

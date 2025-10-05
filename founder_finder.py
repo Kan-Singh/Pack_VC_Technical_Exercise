@@ -125,6 +125,13 @@ class FounderFinder:
             
             # "Name, Co-Founder" or "Name - Co-Founder"
             r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)\s*[,\-–—]\s*Co-?Founder',
+
+            # NEW PATTERN: Title BEFORE name - "CEO & CO-FOUNDER\nMitra Raman"
+            r'(?:CEO|COO|CTO|CPO|CFO)?\s*&?\s*CO-?FOUNDER\s*\n+\s*([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+)',
+
+            # Also catch just "CO-FOUNDER" or "FOUNDER" followed by name
+            r'CO-?FOUNDER\s*\n+\s*([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+)',
+            r'FOUNDER\s*\n+\s*([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+)',
         ]
         
         for i, pattern in enumerate(patterns):
