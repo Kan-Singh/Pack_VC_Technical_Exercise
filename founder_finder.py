@@ -105,15 +105,22 @@ class FounderFinder:
     
     def extract_founders_from_text(self, text):
         """Extract founder names from text using pattern matching"""
+
+        # DEBUG: Test the pattern directly
+        test_pattern = r'([A-Z][a-z]+(?:(?:\s+|-)[A-Z][a-z]+)+),\s*(?:PhD|MD|MSc)\s*\n\s*Founder'
+        test_matches = re.findall(test_pattern, text, re.IGNORECASE | re.MULTILINE)
+        print(f"      DEBUG: Direct test found: {test_matches}")
+
         if not text:
             return []
         
         founders = set()
         
+      
         patterns = [
-            # "Name, PhD" followed by "Founder" on next line
-            r'([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+),?\s*(?:PhD|MD)?\s*\n+\s*Founder',
-            
+           
+            r'([A-Z][a-z]+(?:\s+[A-Z][a-zA-Z\-]+)+),?\s*(?:PhD|MD)?\s*\n+\s*Founder\b(?:[^\r\n]*)?',
+
             # "Founded by X" or "Co-founded by X and Y"
             r'(?:founded by|co-founded by)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)',
             
@@ -126,12 +133,10 @@ class FounderFinder:
             # "Name, Co-Founder" or "Name - Co-Founder"
             r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)\s*[,\-–—]\s*Co-?Founder',
 
-            # NEW PATTERN: Title BEFORE name - "CEO & CO-FOUNDER\nMitra Raman"
-            r'(?:CEO|COO|CTO|CPO|CFO)?\s*&?\s*CO-?FOUNDER\s*\n+\s*([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+)',
+            # Pattern for "CEO & CO-FOUNDER\nMitra Raman" (Rosie style)
+            r'(?:CEO|COO|CTO|CFO|CPO)\s*&\s*CO-?FOUNDER\s*\n\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+?)(?=\s*\n)'
 
-            # Also catch just "CO-FOUNDER" or "FOUNDER" followed by name
-            r'CO-?FOUNDER\s*\n+\s*([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+)',
-            r'FOUNDER\s*\n+\s*([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+)',
+            
         ]
         
         for i, pattern in enumerate(patterns):
