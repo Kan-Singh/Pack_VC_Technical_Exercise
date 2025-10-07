@@ -92,7 +92,7 @@ could be done in the future with more research.
 
 #### 1. (Optionally) Also finding relevant information about Founders (Additionally, scraping for cases where Founder names are not on websites):
 
-    If someone is searching up the name of a founder, it's likely that they may also want additional information about that founder, such as their contact information or their connection to UW.
+   If someone is searching up the name of a founder, it's likely that they may also want additional information about that founder, such as their contact information or their connection to UW.
    This information could be scraped for on the company website. Many founders might have their own website (about themselves, not the company), or at least a Linkedin profile. Links to this information
    might be available on the company website, or could be manually inputted the same way company website were. Additional founder information could then be scraped as well.
 
