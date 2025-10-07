@@ -83,6 +83,9 @@ on the websites that I visited, so this assumption requires nuance. I believe th
 could probably find them with more time and more exposure to different company websites. However, that doesn't mean that it wouldn't be worth considering alternate ways of identifying 
 names, if any seemed to be a more accurate fit. 
 
+Another set of assumptions lies in the case of 'name conventions'. The ones in the code right now are general enough that they should work for many names, especially the vast majority of 
+names that Pack Ventures is likely to enounter, but it's important to be mindful that other cultures may not fit within the contraints that we consider common, so optimization or changes 
+could be done in the future with more research. 
 
 
 ## 4. Future Improvements
