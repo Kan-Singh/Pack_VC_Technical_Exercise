@@ -141,6 +141,10 @@ class FounderFinder:
             # Pattern for "CEO & CO-FOUNDER\nMitra Raman" (Rosie style)
             r'(?:CEO|COO|CTO|CFO|CPO)\s*&\s*CO-?FOUNDER\s*\n\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+?)(?=\s*\n)', 
 
+               # Also catch just "CO-FOUNDER" or "FOUNDER" followed by name
+            r'CO-?FOUNDER\s*\n+\s*([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+)',
+            r'FOUNDER\s*\n+\s*([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+)',
+
 
         ]
         
