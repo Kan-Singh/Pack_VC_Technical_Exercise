@@ -123,6 +123,11 @@ class FounderFinder:
 
             # "Founded by X" or "Co-founded by X and Y"
             r'(?:founded by|co-founded by)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)',
+
+            r'([A-Z][a-z]+(?:\s+[A-Z][a-zA-Z\-]+)*)\s*(?=\n+\s*(?:Co-)?Founder\b)',
+
+            r'(?:(?<=\n)|^)\s*([A-Z][a-z]+(?:\s+[A-Z][a-zA-Z\-]+)*)\s*(?=\n+\s*(?:Co-)?Founder\b)',
+
             
             # "Name\nCo-Founder & CEO"
             r'([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+),?\s*(?:,\s*)?(?:PhD|MD)?\s*\n+\s*Co-?Founder',
@@ -134,9 +139,9 @@ class FounderFinder:
             r'([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)\s*[,\-–—]\s*Co-?Founder',
 
             # Pattern for "CEO & CO-FOUNDER\nMitra Raman" (Rosie style)
-            r'(?:CEO|COO|CTO|CFO|CPO)\s*&\s*CO-?FOUNDER\s*\n\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+?)(?=\s*\n)'
+            r'(?:CEO|COO|CTO|CFO|CPO)\s*&\s*CO-?FOUNDER\s*\n\s*([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+?)(?=\s*\n)', 
 
-            
+
         ]
         
         for i, pattern in enumerate(patterns):
