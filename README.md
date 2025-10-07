@@ -90,26 +90,29 @@ could be done in the future with more research.
 
 ## 4. Future Improvements
 
-### 1. (Optionally) Also finding relevant information about Founders:
+#### 1. (Optionally) Also finding relevant information about Founders (Additionally, scraping for cases where Founder names are not on websites):
 
     If someone is searching up the name of a founder, it's likely that they may also want additional information about that founder, such as their contact information or their connection to UW.
    This information could be scraped for on the company website. Many founders might have their own website (about themselves, not the company), or at least a Linkedin profile. Links to this information
    might be available on the company website, or could be manually inputted the same way company website were. Additional founder information could then be scraped as well.
 
+   In cases where the company website doesn't have founder information, it may be worth finding their company Linkedins, and then going through the profiles of the people working there to find the founders. 
+   Since many of these companies are at early stages and don't have a massive amount of employees, this is doable. 
+
    (Linkedin scraping does have some constraints, so this is something I would further discuss before doing. Ultimately, since Pack Ventures is likely to be doing this on a very small scale and not in a scammy
    way, it shouldn't be a problem)
 
-### 2.  Using AI models to find founder names from the extracted text.
+#### 2.  Using AI models to find founder names from the extracted text.
 
    The current process collects all the webpage text, and then uses pattern-matching in order to find founder names. As mentioned in my approach section, while this method is functional, it may be prone to certain errors, depending on what patterns are defined or the variety in website formatting. Pattern matching also misses some contextual clues (such as if someone is listed as a founder, but for a different company). A model trained to find founder names may be able to navigate those issues better. I've been an undergraduate researcher at UW's Natural Language Processing lab for the past year, and my work has actually focused on something very similar: named entity recognition and entitity linking (among other things). While my research focused on legal documents specifically, it shouldn't be a radically different approach to work with website text. In this approach, I would extract website text with Selenium and create a file of that text (which my code already does), and then prompt a model to identify the founders. The potential issue here would be having enough data to meaningfully train the model to do this with high accuracy. However, there is a certain level of simplicity to website text and this prompt, so it is doable.
 
-### 3. Saving or Caching this information, and potentially integrating it into a simpler "search" UI.
+#### 3. Saving or Caching this information, and potentially integrating it into a simpler "search" UI.
 
    The current format (creating an input file, running the python script, and then getting an output file) is not the easiest and most intuitive to use. Ideally, I would want this be software where people can enter a company URL into a search bar and then get founder names on the same page. Building that frontend is a fairly simple project.
 
    With a feature like that however, it would be optimal to not have to scrape the same website more than once. In order to avoid this, we could save the URL and associated founder names in a database. When a new URL is searched, we'd simply ensure that it didn't already exist in our database before scraping it.
 
-### 4. Optimizing the code in this submission
+#### 4. Optimizing the code in this submission
   
    All of the above changes are great next steps. However, my first step if I had more than 2 hours would likely be to go back and simply optimize this submission. My main focus would be the pattern-matching regarding the names: I would want to create more concise and accurate regex patterns, and even research what other options there may be outside of pattern matching. I would also want to extend support for different alphabets/characters, as well as different cultural naming conventions. The name validation could potentially also be more sophisticated, such as by checking against a database of very common names. 
       
