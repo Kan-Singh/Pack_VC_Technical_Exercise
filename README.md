@@ -59,3 +59,19 @@ py founder_finder.py
 
 ## 2. Approach
 
+I decided the best way to find founder names is to scrape the company websites to find any founder names they may contain. 
+An alternative approach I could think of was using an API, such as 'Crunchbase' API in order to attempt to find founder names. However, 
+given that many of the companies that Pack Ventures work with are very early in their stages as opposed to more established companies, I believe that
+many of these external sources may not contain the relevant information, while the websites themselves were highly likely to. 
+
+I then used Selenium to extract the text from the website. Selenium is essentially opening a Chrome webriver to fully render these websites. I then wait 
+a couple seconds to allow for more content to load. Additionally, I 'scroll' up and down the website to find any trigger elements. All the text that can be
+found is extracted. 
+
+I then have a set of Regex patterns. I go through the extracted website text with these patterns in order to find founder names. Any pattern matches are saved to the 
+founders.json file. 
+
+## 3. Assumptions
+
+## 4. Future Improvements
+
