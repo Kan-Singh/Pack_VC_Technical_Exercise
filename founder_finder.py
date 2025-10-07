@@ -1,13 +1,15 @@
-"""
-Pack Ventures Founder Finder - Selenium Version
-Handles JavaScript-rendered websites by using a real browser
-"""
 
+# imports
 import json
 import re
 import time
 from urllib.parse import urlparse
 
+
+
+# added this in to point out a potentially common error of someone not 
+# installing selenium before running this code - or in case of debugging, 
+# in case another programmer wants to check if selenium is working or not
 try:
     from selenium import webdriver
     from selenium.webdriver.chrome.options import Options
@@ -19,10 +21,13 @@ except ImportError:
     SELENIUM_AVAILABLE = False
     print("WARNING: Selenium not installed. Install with: pip install selenium webdriver-manager")
 
+
 print("Script started!")
 
 class FounderFinder:
     def __init__(self, use_selenium=True):
+        # using selenium to open up a chrome browser and then
+        # extract all the text that's in Javascript (frameworks)
         self.use_selenium = use_selenium and SELENIUM_AVAILABLE
         
         if self.use_selenium:
