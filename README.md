@@ -68,10 +68,22 @@ I then used Selenium to extract the text from the website. Selenium is essential
 a couple seconds to allow for more content to load. Additionally, I 'scroll' up and down the website to find any trigger elements. All the text that can be
 found is extracted. 
 
-I then have a set of Regex patterns. I go through the extracted website text with these patterns in order to find founder names. Any pattern matches are saved to the 
+I then have a set of Regex patterns. I go through the extracted website text with these patterns in order to find founder names. After patterns are matched, 
+the matching string is compared against some common name conventions (such as being between 2-4 words). Any founder names are then saved to the 
 founders.json file. 
 
 ## 3. Assumptions
+
+The most crucial assumption made in this approach is that the company websites contain founder names. For about half the websites in companies.txt, this assumption
+doesn't hold true - I wasn't able to find founder names even when I manually went to the website to search for them. If this ratio holds true - that about 50% of companies
+that people at Pack Ventures search for don't have founder names on their website, then this approach isn't actually very helpful. 
+
+The pattern matching approach also assumes that there is a set amount of ways (patterns) that names can be stored and formatted in company websites. I did see a lot of variety 
+on the websites that I visited, so this assumption requires nuance. I believe that there is probably a set of optimal patterns that will end up working for most websites, and I 
+could probably find them with more time and more exposure to different company websites. However, that doesn't mean that it wouldn't be worth considering alternate ways of identifying 
+names, if any seemed to be a more accurate fit. 
+
+
 
 ## 4. Future Improvements
 
