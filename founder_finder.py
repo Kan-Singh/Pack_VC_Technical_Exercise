@@ -4,6 +4,8 @@ import json
 import re
 import time
 from urllib.parse import urlparse
+import requests
+from bs4 import BeautifulSoup
 
 
 
@@ -22,12 +24,14 @@ except ImportError:
     print("WARNING: Selenium not installed. Install with: pip install selenium webdriver-manager")
 
 
+# I've added in print messages throughout the code that are solely for 
+# the purpose of clarity for whoever's running this
 print("Script started!")
 
 class FounderFinder:
+
+    # initializing selenium so I can use it to access the websites
     def __init__(self, use_selenium=True):
-        # using selenium to open up a chrome browser and then
-        # extract all the text that's in Javascript (frameworks)
         self.use_selenium = use_selenium and SELENIUM_AVAILABLE
         
         if self.use_selenium:
@@ -39,6 +43,7 @@ class FounderFinder:
             chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
             
+            # error checking to ensure that selenium is initialized correctly
             try:
                 service = Service(ChromeDriverManager().install())
                 self.driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -50,43 +55,49 @@ class FounderFinder:
         else:
             print("Using basic requests mode (no JavaScript rendering)")
         
+        # these are the pages that will be checked/scriped for each website
+        # in this exercise, I've kept things minimal so that it doesn't take
+        # forever, but more pages can be added if we want to expand this to a bigger project
         self.about_paths = [ '/about', '/founders', '/team']
     
     def __del__(self):
         if self.use_selenium and hasattr(self, 'driver'):
             self.driver.quit()
         
+    # gets the company's name and URL from the input file
     def extract_company_info(self, line):
-        """Parse company name and URL from input line"""
         match = re.match(r'(.+?)\s*\((.+?)\)', line.strip())
         if match:
             return match.group(1).strip(), match.group(2).strip()
         return line.strip(), None
     
+    # actually opens the pages, loads and extracts the text in them
     def get_page_text(self, url, save_debug=False):
-        """Fetch page and return text content using Selenium"""
         try:
             if self.use_selenium:
                 print(f"    Loading page with JavaScript rendering...")
                 self.driver.get(url)
                 
-                # Wait longer for dynamic content to load
-                time.sleep(5)  # Increased from 3 to 5 seconds
+                # Waits so that more content from the page can load
+                # can be adjusted based on future need
+                time.sleep(5)  
                 
-                # Try to scroll down to trigger lazy loading
+                
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 time.sleep(2)
                 
-                # Scroll back up
+                
                 self.driver.execute_script("window.scrollTo(0, 0);")
                 time.sleep(1)
                 
-                # Get all text
+                
                 text = self.driver.find_element(By.TAG_NAME, 'body').text
                 
-                # Also try to get HTML source and parse it
+                
                 html = self.driver.page_source
                 
+                # save a debug file that contains all the text from each page you open
+                # this can help a programmer check issues such as- 
                 if save_debug and text:
                     filename = url.replace('https://', '').replace('http://', '').replace('/', '_')
                     with open(f'debug_{filename}.txt', 'w', encoding='utf-8') as f:
@@ -98,42 +109,34 @@ class FounderFinder:
                 
                 return text
             else:
-                import requests
                 response = requests.get(url, timeout=10)
                 response.raise_for_status()
-                from bs4 import BeautifulSoup
                 soup = BeautifulSoup(response.text, 'html.parser')
                 return soup.get_text()
         except Exception as e:
             print(f"    Error: {str(e)}")
             return None
     
+    # tries to find the founder names from the extracted website text
     def extract_founders_from_text(self, text):
-        """Extract founder names from text using pattern matching"""
-
-        # DEBUG: Test the pattern directly
-        test_pattern = r'([A-Z][a-z]+(?:(?:\s+|-)[A-Z][a-z]+)+),\s*(?:PhD|MD|MSc)\s*\n\s*Founder'
-        test_matches = re.findall(test_pattern, text, re.IGNORECASE | re.MULTILINE)
-        print(f"      DEBUG: Direct test found: {test_matches}")
 
         if not text:
             return []
         
         founders = set()
         
-      
+        # in regex, these are the patterns I am looking for 
         patterns = [
            
             r'([A-Z][a-z]+(?:\s+[A-Z][a-zA-Z\-]+)+),?\s*(?:PhD|MD)?\s*\n+\s*Founder\b(?:[^\r\n]*)?',
 
             # "Founded by X" or "Co-founded by X and Y"
             r'(?:founded by|co-founded by)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)',
-
+            
+            # Name followed by Founder or Co-Founder
             r'([A-Z][a-z]+(?:\s+[A-Z][a-zA-Z\-]+)*)\s*(?=\n+\s*(?:Co-)?Founder\b)',
-
             r'(?:(?<=\n)|^)\s*([A-Z][a-z]+(?:\s+[A-Z][a-zA-Z\-]+)*)\s*(?=\n+\s*(?:Co-)?Founder\b)',
 
-            
             # "Name\nCo-Founder & CEO"
             r'([A-Z][a-z]+(?:\s+[A-Z\-][a-z]+)+),?\s*(?:,\s*)?(?:PhD|MD)?\s*\n+\s*Co-?Founder',
             
@@ -153,6 +156,7 @@ class FounderFinder:
 
         ]
         
+        # go through and test all the above patterns on a webpage, iteratively
         for i, pattern in enumerate(patterns):
             matches = re.finditer(pattern, text, re.IGNORECASE | re.MULTILINE)
             for match in matches:
@@ -164,30 +168,39 @@ class FounderFinder:
         
         return sorted(list(founders))
     
+    # Used to check if a string resembles a conventional name
+    # def not a one-size-fits all approach, may need to be workshopped
     def _is_valid_name(self, name):
         """Check if string looks like a valid person name"""
         words = name.split()
-        if len(words) < 2 or len(words) > 4:
+
+        if len(words) < 1 or len(words) > 4:
             return False
         
         for word in words:
             if not word[0].isupper():
                 return False
         
+        # comparing against some hard-coded common false positives. those may need to 
+        # be adjusted based on what the most common false postitives are
         false_positives = ['Our Team', 'Meet The', 'About Us', 'Contact Us', 'Head Of']
         if name in false_positives:
             return False
         
         return True
     
+    # this calls some earlier methods about extracting webpage text, 
+    # pattern matching for founder names, etc 
+    # ultimately finds the founder names for a company
     def find_founders(self, company_name, company_url):
-        """Main method to find founders for a company"""
         print(f"\nSearching for founders of {company_name}...")
         
+        # error message in case the company's URL hasn't been provided
         if not company_url:
             print("  No URL provided")
             return []
         
+        # goes through the homepage to see if it can find names
         print(f"  Trying homepage: {company_url}")
         text = self.get_page_text(company_url, save_debug=True)
         if text:
@@ -199,10 +212,13 @@ class FounderFinder:
         parsed_url = urlparse(company_url)
         base_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
         
+        # goes through any additional paths to see if it can find names
         for path in self.about_paths:
             about_url = base_url + path
-            print(f"  Trying: {about_url}")
+            print(f"  Trying: {about_url}") 
             text = self.get_page_text(about_url, save_debug=(path in ['/about', '/founders', '/team']))
+
+            # if you find any founder names, extract them, as well as inform the user
             if text:
                 founders = self.extract_founders_from_text(text)
                 if founders:
@@ -210,11 +226,12 @@ class FounderFinder:
                     return founders
             time.sleep(1)
         
+        # in case no founder names were found
         print(f"  ✗ No founders found for {company_name}")
         return []
     
+    # this generates the output file (founders)
     def process_companies_file(self, input_file, output_file):
-        """Process input file and generate founders JSON"""
         results = {}
         
         try:
@@ -223,6 +240,7 @@ class FounderFinder:
             
             print(f"\nProcessing {len(lines)} companies...")
             
+            # goes through every line in the input file
             for i, line in enumerate(lines, 1):
                 if line.strip():
                     print(f"\n[{i}/{len(lines)}]")
@@ -233,6 +251,7 @@ class FounderFinder:
             with open(output_file, 'w') as f:
                 json.dump(results, f, indent=2)
             
+            # some debugging messages to let you know what's happening
             print(f"\n{'='*60}")
             print(f"✓ Results saved to {output_file}")
             print(f"Found founders for {sum(1 for v in results.values() if v)}/{len(results)} companies")
@@ -241,6 +260,7 @@ class FounderFinder:
                 status = "✓" if founders else "✗"
                 print(f"  {status} {company}: {founders if founders else '[]'}")
             
+        # ensures input file is found    
         except FileNotFoundError:
             print(f"Error: {input_file} not found")
         except Exception as e:
